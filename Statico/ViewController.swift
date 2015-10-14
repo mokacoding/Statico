@@ -7,14 +7,37 @@
 //
 
 import UIKit
+import Static
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var tableView: UITableView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+  let dataSource = DataSource()
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    dataSource.tableView = tableView
+    dataSource.sections = [
+      Section(
+        header: Section.Extremity.Title("title"),
+        rows: [
+          Row(text: "foo"),
+          Row(text: "bar"),
+          Row(text: "tap me", selection: { self.showAlert() })
+        ]
+      )
+    ]
+  }
+
+  private func showAlert() {
+    let alertController = UIAlertController(title: nil, message: "😜", preferredStyle: .Alert)
+    let alertAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    alertController.addAction(alertAction)
+
+    self.presentViewController(alertController, animated: true, completion: nil)
+  }
+
 }
 
