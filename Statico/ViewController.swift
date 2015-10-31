@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
 
+  // How to use Static with a custom view controller
   let dataSource = DataSource()
 
   override func viewDidLoad() {
@@ -25,9 +26,11 @@ class ViewController: UIViewController {
         rows: [
           Row(text: "foo"),
           Row(text: "bar"),
+          // How to add a selection callback
           Row(text: "tap me", selection: { self.showAlert() })
         ]
       ),
+      // How to add more sections (super easy)
       Section(
         header: Section.Extremity.Title("fancy"),
         rows: [
