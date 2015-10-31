@@ -27,6 +27,20 @@ class ViewController: UIViewController {
           Row(text: "bar"),
           Row(text: "tap me", selection: { self.showAlert() })
         ]
+      ),
+      Section(
+        header: Section.Extremity.Title("fancy"),
+        rows: [
+          Row(text: "text",
+            detailText: "detail text",
+            selection: nil,
+            image: nil,
+            accessory: Row.Accessory.DisclosureIndicator),
+          Row(text: "bar"),
+        ],
+        footer: Section.Extremity.Title("This is the footer"),
+        indexTitle: "Index title",
+        UUID: "UUID"
       )
     ]
   }
